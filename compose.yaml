@@ -7,8 +7,8 @@ services:
             dockerfile: ./nginx/Dockerfile
         restart: always
         ports:
-            - "80:80"
-            - "443:443"
+            - "81:80"
+            - "445:443"
         volumes:
             - .:/var/www/html:ro,cached
             - ./var/log/nginx:/var/log/nginx
@@ -44,7 +44,7 @@ services:
             MYSQL_ROOT_PASSWORD: secret
             MYSQL_DATABASE: travel
         ports:
-            - "33060:3306"
+            - "3307:3306"
         volumes:
             - mysql_user:/var/lib/mysql:delegated
         networks:
@@ -55,7 +55,7 @@ services:
         environment:
             PMA_HOST: database
         ports:
-            - "9002:80"
+            - "9006:80"
         depends_on:
             - database
         networks:
